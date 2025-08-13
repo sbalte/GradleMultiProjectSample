@@ -58,7 +58,7 @@ springBootVersion = "3.5.4"
 springManagementVersion = "1.1.7"
 springModulithVersion = "1.2.0"
 strCacheJarVersion = "24.04.0.27"
-striKtVersion = "0.34.0"
+striKtVersion = "0.35.1"
 swaggerParserVersion = "2.1.22"
 testApprovalVersion = "24.9.0"
 #testContainerJupiter = "1.19.7"
@@ -160,22 +160,21 @@ thymeleafTemplateEngine = { module = "org.thymeleaf:thymeleaf", version.ref = "t
 
 # --- Other :: http4k ---
 http4kBom = { module = "org.http4k:http4k-bom", version.ref = "http4kBomVersion" }
-http4kClientApache = { module = "org.http4k:http4k-client-apache-async" }
-http4kClientOkHttp = { module = "org.http4k:http4k-client-okhttp" }
-http4kCore = { module = "org.http4k:http4k-core" }
-http4kFreeMarkerTemplate = { module = "org.http4k:http4k-template-freemarker" }
-http4kJackson = { module = "org.http4k:http4k-format-jackson" }
-http4kJacksonXml = { module = "org.http4k:http4k-format-jackson-xml" }
-http4kJettyClient = { module = "org.http4k:http4k-client-jetty" }
-http4kJettyServer = { module = "org.http4k:http4k-server-jetty" }
-http4kKotlinSerialization = { module = "org.http4k:http4k-format-kotlinx-serialization" }
-http4kMultipart = { module = "org.http4k:http4k-multipart" }
-http4kNetty = { module = "org.http4k:http4k-server-netty" }
-http4kNettyClient = { module = "org.http4k:http4k-client-netty" }
-http4kThymeleafTemplate = { module = "org.http4k:http4k-template-thymeleaf" }
-http4kWebSocketClient = { module = "org.http4k:http4k-client-websocket" }
-http4kWebSocketServer = { module = "org.http4k:http4k-server-websocket" }
-http4kXml = { module = "org.http4k:http4k-format-xml" }
+http4kClientApache = { module = "org.http4k:http4k-client-apache-async", version.ref = "http4kBomVersion" }
+http4kClientOkHttp = { module = "org.http4k:http4k-client-okhttp", version.ref = "http4kBomVersion" }
+http4kCore = { module = "org.http4k:http4k-core", version.ref = "http4kBomVersion" }
+http4kFreeMarkerTemplate = { module = "org.http4k:http4k-template-freemarker", version.ref = "http4kBomVersion" }
+http4kJackson = { module = "org.http4k:http4k-format-jackson", version.ref = "http4kBomVersion" }
+http4kJacksonXml = { module = "org.http4k:http4k-format-jackson-xml", version.ref = "http4kBomVersion" }
+http4kJettyClient = { module = "org.http4k:http4k-client-jetty", version.ref = "http4kBomVersion" }
+http4kJettyServer = { module = "org.http4k:http4k-server-jetty", version.ref = "http4kBomVersion" }
+http4kKotlinSerialization = { module = "org.http4k:http4k-format-kotlinx-serialization", version.ref = "http4kBomVersion" }
+http4kMultipart = { module = "org.http4k:http4k-multipart", version.ref = "http4kBomVersion" }
+http4kNetty = { module = "org.http4k:http4k-server-netty", version.ref = "http4kBomVersion" }
+http4kThymeleafTemplate = { module = "org.http4k:http4k-template-thymeleaf", version.ref = "http4kBomVersion" }
+http4kWebSocketClient = { module = "org.http4k:http4k-client-websocket", version.ref = "http4kBomVersion" }
+http4kWebSocketServer = { module = "org.http4k:http4k-server-websocket", version.ref = "http4kBomVersion" }
+http4kXml = { module = "org.http4k:http4k-format-xml", version.ref = "http4kBomVersion" }
 
 # --- Other :: Google ---
 googleGson = { module = "com.google.code.gson:gson", version.ref = "googleGsonVersion" }
@@ -230,13 +229,13 @@ testKOTestJunit5Jvm = { module = "io.kotest:kotest-runner-junit5-jvm", version.r
 testKOTestKOTestExtSpring = { module = "io.kotest:kotest-extensions-spring", version.ref = "koTestKOTestExtSpringVersion" }
 
 # --- Test :: Strikt ---
-testStriKtBom = { module = "io.strikt:strikt-bom", version.ref = "striKtVersion" }
-testStriKtCore = { module = "io.strikt:strikt-core" }
-testStriKtArrow = { module = "io.strikt:strikt-arrow" }
-testStriKtJackson = { module = "io.strikt:strikt-jackson" }
-testStriKtJvm = { module = "io.strikt:strikt-jvm" }
-testStriKtMockk = { module = "io.strikt:strikt-mockk" }
-testStriKtSpring = { module = "io.strikt:strikt-spring" }
+#testStriKtBom = { module = "io.strikt:strikt-bom", version.ref = "striKtVersion" }
+testStriKtCore = { module = "io.strikt:strikt-core", version.ref = "striKtVersion"  }
+testStriKtArrow = { module = "io.strikt:strikt-arrow", version.ref = "striKtVersion"  }
+testStriKtJackson = { module = "io.strikt:strikt-jackson", version.ref = "striKtVersion"  }
+testStriKtJvm = { module = "io.strikt:strikt-jvm", version.ref = "striKtVersion"  }
+testStriKtMockk = { module = "io.strikt:strikt-mockk", version.ref = "striKtVersion"  }
+testStriKtSpring = { module = "io.strikt:strikt-spring", version.ref = "striKtVersion"  }
 
 # --- Test :: Spring ---
 testSpringBootStarter = { module = "org.springframework.boot:spring-boot-starter-test" }
@@ -292,10 +291,11 @@ exposedCcore = { module = "org.jetbrains.exposed:exposed-core", version.ref = "e
 exposedJdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed-version" }
 
 [bundles]
+bomBundle = ["http4kBom","jacksonBom",]
 apacheBundle = ["apacheCommonsLang3", "apacheLog4jKotlin", "apachePoi", "apachePoiOoxml", "apacheVelocity", "apacheVelocityTool", "bsdFreemakerTemplateEngine", "thymeleafSpringTemplateEngine", "thymeleafTemplateEngine",]
 arrowBundle = ["arrowCore", "arrowFxCoroutine", "arrowSTM", "arrowAutoClose", "arrowEval", "arrowOptics", "arrowOpticsKsp"]
 googleBundle = ["googleGson", "googleGuava"]
-http4kBundle = ["http4kBom", "http4kClientApache", "http4kClientOkHttp", "http4kCore", "http4kFreeMarkerTemplate", "http4kJackson", "http4kJacksonXml", "http4kJettyClient", "http4kJettyServer", "http4kKotlinSerialization", "http4kMultipart", "http4kNetty", "http4kNettyClient", "http4kThymeleafTemplate", "http4kWebSocketClient", "http4kWebSocketServer", "http4kXml"]
+http4kBundle = ["http4kClientApache", "http4kClientOkHttp", "http4kCore", "http4kFreeMarkerTemplate", "http4kJackson", "http4kJacksonXml", "http4kJettyClient", "http4kJettyServer", "http4kKotlinSerialization", "http4kMultipart", "http4kNetty", "http4kThymeleafTemplate", "http4kWebSocketClient", "http4kWebSocketServer", "http4kXml"]
 kotlinCoreBundle = ["klibsFlowExt", "kosonJsonBuilder", "kotlinCoroutineReactor", "kotlinDataframe", "kotlinDatetime", "kotlinIOCore", "kotlinImmutableCollection", "kotlinKMath", "kotlinMultiKCore", "kotlinMultiKDefault", "kotlinRedux", "kotlinReflect", "kotlinXmlBuilder", "kotlinxBenchmark", "reactorKotlinExtension", "exposedCcore", "exposedJdbc"]
 mutinyBundle = ["reactiveMutiny", "reactiveMutinyKotlin", "reactiveMutinyReactor"]
 solaceBundle = ["solaceJcsmp", "solaceJms", "solaceJmsJakarta", "solaceMsgClient"]
@@ -317,8 +317,7 @@ dbRuntimeBundle = ["mssqlR2DBC", "mssqlJdbc"]
 kotlinTestBundle = ["testKotlinTest", "testKotlinJUnitTest", "testKotlinCoroutineTest"]
 kotestBundle = ["testKOTestAssert", "testKOTestExtArrow", "testKOTestExtArrowJvm", "testKOTestExtJvm", "testKOTestExtSpring", "testKOTestJunit5Jvm", "testKOTestKOTestExtSpring",]
 springTestBundle = ["testSpringBootStarter", "testSpringBootTestContainer", "testSpringIntegrationTest", "testSpringSecurity", "testSpringBootReactor",]
-#striktTestBundle = ["testHttp4k4Strikt", "testStriKtArrow", "testStriKtBom", "testStriKtCore", "testStriKtJackson", "testStriKtJvm", "testStriKtMockk", "testStriKtSpring"]
-striktTestBundle = ["testHttp4k4Strikt", "testStriKtBom", "testStriKtCore", "testStriKtJvm", "testStriKtMockk",]
+striktTestBundle = ["testHttp4k4Strikt", "testStriKtArrow", "testStriKtCore", "testStriKtJackson", "testStriKtJvm", "testStriKtMockk", "testStriKtSpring"]
 http4kTestBundle = ["testApprovalPath", "testHttp4k4Hamkrest", "testHttp4k4Approval", "testOkHttpMockWebServer", "testOkHttp"]
 arrowTestBundle = ["testArrowCore", "testAssetJCore",]
 dbTestBundle = ["testH2R2DBC", "testH2DB"]

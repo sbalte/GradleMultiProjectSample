@@ -11,19 +11,5 @@ gradlePluginSpringBoot = { module = "org.springframework.boot:spring-boot-gradle
 gradlePluginSpringManagement = { module = "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin", version.ref = "springManagementVersion" }
 gradlePluginGoogleKsp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "gradlePluginGoogleKspVersion" }
 
-# --- Spring :: Starters ---
-springBootActuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
-springBootMail = { module = "org.springframework.boot:spring-boot-starter-mail" }
-springBootR2DBC = { module = "org.springframework.boot:spring-boot-starter-data-r2dbc" }
-springBootStarterSecurity = { module = "org.springframework.boot:spring-boot-starter-security" }
-springBootWebflux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
-
-# --- Spring :: Integration ---
-springBootIntegration = { module = "org.springframework.boot:spring-boot-starter-integration" }
-springBootIntegrationFile = { module = "org.springframework.integration:spring-integration-file" }
-springBootIntegrationJms = { module = "org.springframework.integration:spring-integration-jms" }
-springBootIntegrationR2DBC = { module = "org.springframework.integration:spring-integration-r2dbc" }
-springBootIntegrationWebflux = { module = "org.springframework.integration:spring-integration-webflux" }
-
 [bundles]
-springBootBundle = ["springBootActuator", "springBootIntegration", "springBootIntegrationFile", "springBootIntegrationJms", "springBootIntegrationR2DBC", "springBootIntegrationWebflux", "springBootMail", "springBootR2DBC", "springBootStarterSecurity", "springBootWebflux"]
+gradlePluginBundle = ["gradlePluginKotlin", "gradlePluginKotlinSpring", "gradlePluginSpringBoot", "gradlePluginSpringManagement", "gradlePluginGoogleKsp",]

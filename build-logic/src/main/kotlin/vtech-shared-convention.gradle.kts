@@ -35,12 +35,13 @@ val testLibs = extensions.getByType(VersionCatalogsExtension::class.java).named(
 
 dependencies {
     //bundles
+    implementation(libs.findBundle("bomBundle").get())
     implementation(libs.findLibrary("exposedJdbc").get())
     implementation(libs.findLibrary("exposedCcore").get())
     implementation(libs.findBundle("apacheBundle").get())
     implementation(libs.findBundle("arrowBundle").get())
     implementation(libs.findBundle("googleBundle").get())
-//    implementation(libs.findBundle("http4kBundle").get())
+    implementation(libs.findBundle("http4kBundle").get())
     implementation(libs.findBundle("kotlinCoreBundle").get())
     implementation(libs.findBundle("mutinyBundle").get())
     implementation(libs.findBundle("solaceBundle").get())
@@ -53,6 +54,7 @@ dependencies {
     testFixturesApi(libs.findBundle("kotestBundle").get())
     testFixturesApi(libs.findBundle("springTestBundle").get())
     testFixturesApi(libs.findBundle("http4kTestBundle").get())
+    testFixturesApi(libs.findBundle("striktTestBundle").get())
     testFixturesApi(libs.findBundle("arrowTestBundle").get())
     testFixturesApi(libs.findBundle("dbTestBundle").get())
     testFixturesApi(libs.findBundle("mockTestBundle").get())
@@ -61,6 +63,7 @@ dependencies {
     testImplementation(libs.findBundle("kotestBundle").get())
     testImplementation(libs.findBundle("springTestBundle").get())
     testImplementation(libs.findBundle("http4kTestBundle").get())
+    testImplementation(libs.findBundle("striktTestBundle").get())
     testImplementation(libs.findBundle("arrowTestBundle").get())
     testImplementation(libs.findBundle("dbTestBundle").get())
     testImplementation(libs.findBundle("mockTestBundle").get())
