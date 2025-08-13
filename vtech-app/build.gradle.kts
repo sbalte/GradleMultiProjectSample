@@ -1,0 +1,14 @@
+plugins {
+    id("vtech-app-convention")
+}
+
+group = "com.veda.tech.gradle.app"
+version = "1.0.0-SNAPSHOT"
+
+dependencies {
+    implementation(project(":vtech-shared"))
+}
+
+application {
+    mainClass.set("com.veda.tech.gradle.app.MainKt")
+}
