@@ -8,6 +8,10 @@ import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.provider.Provider
 
 object VTechShared {
+    enum class ConventionName(val conventionName: String) {
+        VTechShared("vtech-shared-convention"),VTechLibrary("vtech-library-convention"), VTechApp("vtech-app-convention");
+        operator fun invoke() = conventionName
+    }
     const val JavaVersion: Int = 17
     val kotlinLangArgs = listOf("-Xjsr305=strict",
         "-Xconsistent-data-class-copy-visibility",

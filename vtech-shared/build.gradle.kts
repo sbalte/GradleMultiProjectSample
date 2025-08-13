@@ -1,6 +1,6 @@
 //import org.springframework.boot.gradle.tasks.bundling.BootJar
 plugins {
-    id("vtech-library-convention")
+    id(vtechLibs.versions.vtechLibrary.get())
     alias(libs.plugins.kotlinSerializationPlugin)
 }
 

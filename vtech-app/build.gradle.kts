@@ -1,5 +1,5 @@
 plugins {
-    id("vtech-app-convention")
+    id(vtechLibs.versions.vtechApp.get())
 }
 
 group = "com.veda.tech.gradle.app"

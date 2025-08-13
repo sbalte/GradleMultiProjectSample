@@ -4,6 +4,11 @@ springBootVersion = "3.5.4"
 springManagementVersion = "1.1.7"
 gradlePluginGoogleKspVersion = "2.2.0-2.0.2"
 
+#convention-names
+vtechShared = "vtech-shared-convention"
+vtechLibrary = "vtech-library-convention"
+vtechApp = "vtech-app-convention"
+
 [libraries]
 gradlePluginKotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinVersion" }
 gradlePluginKotlinSpring = { module = "org.jetbrains.kotlin.plugin.spring:org.jetbrains.kotlin.plugin.spring.gradle.plugin", version.ref = "kotlinVersion" }

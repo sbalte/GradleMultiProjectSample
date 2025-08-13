@@ -3,10 +3,10 @@
 import conventions.VTechShared
 
 plugins {
-    kotlin("jvm")
-    kotlin("plugin.spring")
-    id("org.springframework.boot")
-    id("io.spring.dependency-management")
+    kotlin("jvm") apply false
+    kotlin("plugin.spring") apply false
+    id("org.springframework.boot") apply false
+    id("io.spring.dependency-management") apply false
     `java-test-fixtures`
     `maven-publish`
 }
@@ -49,6 +49,8 @@ dependencies {
     implementation(libs.findBundle("jaxbBundle").get())
     implementation(libs.findBundle("springBootBundle").get())
     implementation(libs.findBundle("otherLibsBundle").get())
+    implementation(libs.findBundle("jmhBundle").get())
+    runtimeOnly(libs.findBundle("dbRuntimeBundle").get())
     //testFixtures
     testFixturesApi(libs.findBundle("kotlinTestBundle").get())
     testFixturesApi(libs.findBundle("kotestBundle").get())
