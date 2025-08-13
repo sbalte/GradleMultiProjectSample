@@ -1,0 +1,29 @@
+[versions]
+kotlinVersion = "2.2.0"
+springBootVersion = "3.5.4"
+springManagementVersion = "1.1.7"
+gradlePluginGoogleKspVersion = "2.2.0-2.0.2"
+
+[libraries]
+gradlePluginKotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinVersion" }
+gradlePluginKotlinSpring = { module = "org.jetbrains.kotlin.plugin.spring:org.jetbrains.kotlin.plugin.spring.gradle.plugin", version.ref = "kotlinVersion" }
+gradlePluginSpringBoot = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "springBootVersion" }
+gradlePluginSpringManagement = { module = "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin", version.ref = "springManagementVersion" }
+gradlePluginGoogleKsp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "gradlePluginGoogleKspVersion" }
+
+# --- Spring :: Starters ---
+springBootActuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+springBootMail = { module = "org.springframework.boot:spring-boot-starter-mail" }
+springBootR2DBC = { module = "org.springframework.boot:spring-boot-starter-data-r2dbc" }
+springBootStarterSecurity = { module = "org.springframework.boot:spring-boot-starter-security" }
+springBootWebflux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
+
+# --- Spring :: Integration ---
+springBootIntegration = { module = "org.springframework.boot:spring-boot-starter-integration" }
+springBootIntegrationFile = { module = "org.springframework.integration:spring-integration-file" }
+springBootIntegrationJms = { module = "org.springframework.integration:spring-integration-jms" }
+springBootIntegrationR2DBC = { module = "org.springframework.integration:spring-integration-r2dbc" }
+springBootIntegrationWebflux = { module = "org.springframework.integration:spring-integration-webflux" }
+
+[bundles]
+springBootBundle = ["springBootActuator", "springBootIntegration", "springBootIntegrationFile", "springBootIntegrationJms", "springBootIntegrationR2DBC", "springBootIntegrationWebflux", "springBootMail", "springBootR2DBC", "springBootStarterSecurity", "springBootWebflux"]
