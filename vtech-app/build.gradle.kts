@@ -1,5 +1,7 @@
 plugins {
     id(vtechLibs.versions.vtechApp.get())
+    alias(libs.plugins.jFrogPlugin)
+    alias(libs.plugins.kotlinxBenchmarkPlugin)
 }
 
 group = "com.veda.tech.gradle.app"

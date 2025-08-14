@@ -3,6 +3,9 @@ kotlinVersion = "2.2.0"
 springBootVersion = "3.5.4"
 springManagementVersion = "1.1.7"
 gradlePluginGoogleKspVersion = "2.2.0-2.0.2"
+spotlessVersion = "7.2.1"
+jfrogVersion = "6.0.0"
+kotlinxBenchmarkVersion = "0.4.14"
 
 #convention-names
 vtechShared = "vtech-shared-convention"
@@ -11,10 +14,15 @@ vtechApp = "vtech-app-convention"
 
 [libraries]
 gradlePluginKotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinVersion" }
+gradlePluginKotlinSerialization = { module = "org.jetbrains.kotlin.plugin.serialization:org.jetbrains.kotlin.plugin.serialization.gradle.plugin", version.ref = "kotlinVersion" }
 gradlePluginKotlinSpring = { module = "org.jetbrains.kotlin.plugin.spring:org.jetbrains.kotlin.plugin.spring.gradle.plugin", version.ref = "kotlinVersion" }
+gradlePluginKotlinNoarg = { module = "org.jetbrains.kotlin.plugin.noarg:org.jetbrains.kotlin.plugin.noarg.gradle.plugin", version.ref = "kotlinVersion" }
 gradlePluginSpringBoot = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "springBootVersion" }
 gradlePluginSpringManagement = { module = "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin", version.ref = "springManagementVersion" }
+gradlePluginBenchmark = { module = "org.jetbrains.kotlinx:org.jetbrains.kotlinx.benchmark.gradle.plugin", version.ref = "kotlinxBenchmarkVersion" }
 gradlePluginGoogleKsp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "gradlePluginGoogleKspVersion" }
+gradlePluginSpotless = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "spotlessVersion" }
+gradlePluginJFrog = { module = "com.jfrog.artifactory:com.jfrog.artifactory.gradle.plugin", version.ref = "jfrogVersion" }
 
 [bundles]
-gradlePluginBundle = ["gradlePluginKotlin", "gradlePluginKotlinSpring", "gradlePluginSpringBoot", "gradlePluginSpringManagement", "gradlePluginGoogleKsp",]
+gradlePluginBundle = ["gradlePluginKotlin", "gradlePluginKotlinSerialization", "gradlePluginKotlinSpring", "gradlePluginKotlinNoarg", "gradlePluginSpringBoot", "gradlePluginSpringManagement", "gradlePluginGoogleKsp", "gradlePluginSpotless", ]
