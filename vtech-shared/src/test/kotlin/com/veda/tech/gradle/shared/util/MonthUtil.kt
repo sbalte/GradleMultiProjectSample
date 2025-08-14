@@ -17,7 +17,7 @@ object MonthUtil {
 
 fun main() {
     listOf(2024, 2025, 2026).let {
-        getDaysInMonthsForYear(it).forEach { year, monthMap ->
+        getDaysInMonthsForYear(it).forEach { (year, monthMap) ->
             println()
             println("Number of days per month for the year $year:")
             monthMap.forEach { (month, days) ->
