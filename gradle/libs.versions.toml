@@ -28,8 +28,8 @@ koTestVersion = "5.9.1"
 kosonJsonBuilderVersion = "1.2.8"
 kotlinCoroutineTestVersion = "1.10.2"
 kotlinDataframeVersion = "0.15.0"
-kotlinDatetimeVersion = "0.6.1"
-kotlinHtmlJvmVersion = "0.7.3"
+kotlinDatetimeVersion = "0.7.1"
+kotlinHtmlVersion = "0.9.1"
 kotlinIOCoreVersion = "0.3.5"
 kotlinImmutableCollectionVersion = "0.3.5"
 kotlinKMathVersion = "0.3.1"
@@ -126,7 +126,7 @@ kosonJsonBuilder = { module = "com.lectra:koson", version.ref = "kosonJsonBuilde
 kotlinCoroutineReactor = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor" }
 kotlinDataframe = { module = "org.jetbrains.kotlinx:dataframe", version.ref = "kotlinDataframeVersion" }
 kotlinDatetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinDatetimeVersion" }
-kotlinxHtml = { module = "org.jetbrains.kotlinx:kotlinx-html", version.ref = "kotlinHtmlJvmVersion" }
+kotlinxHtml = { module = "org.jetbrains.kotlinx:kotlinx-html", version.ref = "kotlinHtmlVersion" }
 kotlinIOCore = { module = "org.jetbrains.kotlinx:kotlinx-io-core", version.ref = "kotlinIOCoreVersion" }
 kotlinImmutableCollection = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "kotlinImmutableCollectionVersion" }
 kotlinKMath = { module = "space.kscience:kmath-core-jvm", version.ref = "kotlinKMathVersion" }

@@ -1,0 +1,28 @@
+package com.veda.tech.gradle.shared.util
+
+import com.veda.tech.gradle.shared.util.MonthUtil.getDaysInMonthsForYear
+import kotlinx.datetime.*
+
+object MonthUtil {
+    fun getDaysInMonthsForYear(years: List<Int>): Map<Int, Map<Month, Int>> =
+        years.associateWith { year ->
+            Month.entries.associateWith { month ->
+                LocalDate(year, month, 1).run {
+                    plus(1, DateTimeUnit.MONTH)
+                        .minus(1, DateTimeUnit.DAY).day
+                }
+            }
+        }
+}
+
+fun main() {
+    listOf(2024, 2025, 2026).let {
+        getDaysInMonthsForYear(it).forEach { year, monthMap ->
+            println()
+            println("Number of days per month for the year $year:")
+            monthMap.forEach { (month, days) ->
+                println("${month.name.padEnd(9)} : $days days")
+            }
+        }
+    }
+}

@@ -2,7 +2,7 @@ package conventions
 
 import java.io.File
 import java.io.FileInputStream
-import java.util.Properties
+import java.util.*
 
 object BuildUtil {
     fun property(propFile: String): Properties =
