@@ -1,6 +1,8 @@
 @file:Suppress("unused")
 
+import conventions.BuildUtil
 import conventions.VTechShared
+import java.util.Properties
 
 plugins {
     kotlin("jvm") apply false
@@ -34,7 +36,6 @@ tasks.withType<AbstractTestTask>().configureEach {
 val vtechLibs = the<VersionCatalogsExtension>().named("vtechLibs")
 val libs = the<VersionCatalogsExtension>().named("libs")
 val testLibs = extensions.getByType(VersionCatalogsExtension::class.java).named("testLibs")
-
 dependencies {
     //bundles
     implementation(libs.findBundle("bomBundle").get())
@@ -53,6 +54,7 @@ dependencies {
     implementation(libs.findBundle("springBootBundle").get())
     implementation(libs.findBundle("otherLibsBundle").get())
     implementation(libs.findBundle("jmhBundle").get())
+    //runtime
     runtimeOnly(libs.findBundle("dbRuntimeBundle").get())
     //testFixtures
     testFixturesApi(libs.findBundle("kotlinTestBundle").get())
@@ -73,4 +75,25 @@ dependencies {
     testImplementation(libs.findBundle("dbTestBundle").get())
     testImplementation(libs.findBundle("mockTestBundle").get())
     testImplementation(kotlin("test"))
+}
+configurations.all {
+    val kotlinVersion = vtechLibs.findVersion("kotlinVersion").get().requiredVersion
+    val depVersionMap = mapOf(
+        "org.apache.struts:struts-core" to "1.3.10",
+        "org.jetbrains.kotlin:kotlin-stdlib" to kotlinVersion,
+        "org.jetbrains.kotlin:kotlin-reflect" to kotlinVersion,
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core" to libs.findVersion("kotlinCoroutineTestVersion").get().requiredVersion,
+    )
+    val excludeJarList = listOf(
+        "com.vaadin.external.google:android-json" to "0.0.20131108.vaadin1",
+    )
+    resolutionStrategy.cacheChangingModulesFor(30, TimeUnit.DAYS)
+    resolutionStrategy.eachDependency {
+        "${requested.group}:${requested.name}".let { depName ->
+            if (depVersionMap.containsKey(depName)) {
+                useVersion(depVersionMap[depName]!!)
+            }
+        }
+    }
+    excludeJarList.forEach { exclude(group = it.first, module = it.second) }
 }

@@ -9,7 +9,6 @@ kotlinxBenchmarkVersion = "0.4.14"
 koverVersion = "0.9.1"
 dokkaVersion = "2.0.0"
 
-
 #convention-names
 vtechSharedName = "vtech-shared-convention"
 vtechLibraryName = "vtech-library-convention"
