@@ -1,14 +1,13 @@
 @file:Suppress("unused")
 
-import conventions.BuildUtil
 import conventions.VTechShared
-import java.util.Properties
 
 plugins {
     kotlin("jvm") apply false
     kotlin("plugin.spring") apply false
     id("org.springframework.boot") apply false
     id("io.spring.dependency-management") apply false
+    id("org.jetbrains.kotlin.plugin.serialization") apply false
     id("org.jetbrains.dokka") apply false
     id("org.jetbrains.kotlinx.kover") apply false
     `java-test-fixtures`
