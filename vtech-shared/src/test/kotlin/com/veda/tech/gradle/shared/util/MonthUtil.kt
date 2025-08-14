@@ -1,6 +1,7 @@
 package com.veda.tech.gradle.shared.util
 
 import com.veda.tech.gradle.shared.util.MonthUtil.getDaysInMonthsForYear
+import com.veda.tech.gradle.shared.util.MonthUtil.getUniqueYearsFromDateStrings
 import kotlinx.datetime.*
 
 object MonthUtil {
@@ -13,10 +14,16 @@ object MonthUtil {
                 }
             }
         }
+    fun getUniqueYearsFromDateStrings(dateStrings: List<String>) = dateStrings
+        .map { LocalDate.parse(it).year }
+        .distinct()
 }
 
 fun main() {
-    listOf(2024, 2025, 2026).let {
+    getUniqueYearsFromDateStrings(
+        listOf("2023-01-15", "2019-05-20", "2024-05-20", "2026-05-20", "2023-11-10",
+            "2025-02-01", "2024-08-30", "2027-05-20", "2028-05-20",)
+    ).let {
         getDaysInMonthsForYear(it).forEach { (year, monthMap) ->
             println()
             println("Number of days per month for the year $year:")
@@ -26,3 +33,5 @@ fun main() {
         }
     }
 }
+
+
