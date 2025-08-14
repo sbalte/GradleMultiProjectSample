@@ -39,6 +39,7 @@ kotlinReduxVersion = "0.5.5"
 kotlinxSerialization = "1.9.0"
 kotlinxBenchmarkVersion = "0.4.14"
 kotlinXmlBuilderVersion = "1.9.1"
+ktorVersion = "3.2.3"
 log4jKotlinVersion = "1.5.0"
 mockkJvmVersion = "1.13.8"
 mooWorkVersion = "1.3.1"
@@ -143,6 +144,21 @@ kotlinxSerializationJson = { module = "org.jetbrains.kotlinx:kotlinx-serializati
 kotlinxSerializationHocon = { module = "org.jetbrains.kotlinx:kotlinx-serialization-hocon", version.ref = "kotlinxSerialization" }
 kotlinxSerializationCbor = { module = "org.jetbrains.kotlinx:kotlinx-serialization-cbor", version.ref = "kotlinxSerialization" }
 kotlinxSerializationProperties = { module = "org.jetbrains.kotlinx:kotlinx-serialization-properties", version.ref = "kotlinxSerialization" }
+
+# --- ktor ---
+ktorServer = { module = "io.ktor:ktor-server-core", version.ref = "ktorVersion" }
+ktorServerCompression = { module = "io.ktor:ktor-server-compression", version.ref = "ktorVersion" }
+ktorServerWebsockets  = { module = "io.ktor:ktor-server-websockets ", version.ref = "ktorVersion" }
+ktorServerConfigYaml  = { module = "io.ktor:ktor-server-config-yaml ", version.ref = "ktorVersion" }
+ktorServerNetty = { module = "io.ktor:ktor-server-netty", version.ref = "ktorVersion" }
+ktorServerJetty = { module = "io.ktor:ktor-server-jetty", version.ref = "ktorVersion" }
+ktorServerCio = { module = "io.ktor:ktor-server-cio", version.ref = "ktorVersion" }
+ktorClient = { module = "io.ktor:ktor-client-core", version.ref = "ktorVersion" }
+ktorClientCio = { module = "io.ktor:ktor-client-cio", version.ref = "ktorVersion" }
+ktorClientOkHttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorVersion" }
+ktorClientJava = { module = "io.ktor:ktor-client-java", version.ref = "ktorVersion" }
+ktorClientJetty = { module = "io.ktor:ktor-client-jetty", version.ref = "ktorVersion" }
+ktorClientApache = { module = "io.ktor:ktor-client-apache", version.ref = "ktorVersion" }
 
 # --- Other ---
 # --- Other :: Apache ---
@@ -294,6 +310,7 @@ arrowBundle = ["arrowCore", "arrowFxCoroutine", "arrowSTM", "arrowAutoClose", "a
 googleBundle = ["googleGson", "googleGuava"]
 http4kBundle = ["http4kClientApache", "http4kClientOkHttp", "http4kCore", "http4kFreeMarkerTemplate", "http4kJackson", "http4kJacksonXml", "http4kJettyClient", "http4kJettyServer", "http4kKotlinSerialization", "http4kMultipart", "http4kNetty", "http4kThymeleafTemplate", "http4kWebSocketClient", "http4kWebSocketServer", "http4kXml"]
 kotlinCoreBundle = ["klibsFlowExt", "kosonJsonBuilder", "kotlinCoroutineReactor", "kotlinDataframe", "kotlinDatetime", "kotlinIOCore", "kotlinImmutableCollection", "kotlinKMath", "kotlinMultiKCore", "kotlinMultiKDefault", "kotlinRedux", "kotlinReflect", "kotlinXmlBuilder", "kotlinxSserializationCore", "kotlinxSerializationJson", "kotlinxSerializationProperties", "kotlinxSerializationCbor", "kotlinxSerializationHocon", "reactorKotlinExtension", "exposedCcore", "exposedJdbc"]
+ktorBundle = ["ktorServer", "ktorServerCio", "ktorServerNetty", "ktorServerJetty", "ktorServerConfigYaml", "ktorServerWebsockets", "ktorServerCompression", "ktorClient", "ktorClientApache", "ktorClientCio", "ktorClientJava", "ktorClientOkHttp", "ktorClientJetty", ]
 mutinyBundle = ["reactiveMutiny", "reactiveMutinyKotlin", "reactiveMutinyReactor"]
 solaceBundle = ["solaceJcsmp", "solaceJms", "solaceJmsJakarta", "solaceMsgClient"]
 jacksonBundle = ["jacksonBom", "jacksonAnnotation", "jacksonDataFormatCsv", "jacksonDataFormatXml", "jacksonDataFormatYaml", "jacksonKotlinModule"]
@@ -321,5 +338,5 @@ mockTestBundle = ["testMockitoInline", "testMockkJvm"]
 
 [plugins]
 kotlinxBenchmarkPlugin = { id = "org.jetbrains.kotlinx.benchmark", version.ref = "kotlinxBenchmarkVersion" }
+ktorPlugin = { id = "io.ktor.plugin", version.ref = "ktorVersion" }
 jFrogPlugin = { id = "com.jfrog.artifactory", version.ref = "jfrogVersion" }
-

@@ -1,6 +1,6 @@
 //import org.springframework.boot.gradle.tasks.bundling.BootJar
 plugins {
-    id(vtechLibs.versions.vtechLibrary.get())
+    id(vtechLibs.versions.vtechLibraryName.get())
     alias(libs.plugins.jFrogPlugin)
     alias(libs.plugins.kotlinxBenchmarkPlugin)
 }
@@ -8,4 +8,6 @@ plugins {
 group = "com.veda.tech.gradle.shared"
 version = "1.0.0-SNAPSHOT"
 
-dependencies {}
+dependencies {
+    kover(project(":vtech-shared"))
+}

@@ -1,5 +1,5 @@
 plugins {
-    id(vtechLibs.versions.vtechApp.get())
+    id(vtechLibs.versions.vtechAppName.get())
     alias(libs.plugins.jFrogPlugin)
     alias(libs.plugins.kotlinxBenchmarkPlugin)
 }
@@ -9,6 +9,7 @@ version = "1.0.0-SNAPSHOT"
 
 dependencies {
     implementation(project(":vtech-shared"))
+    kover(project(":vtech-app"))
 }
 
 application {

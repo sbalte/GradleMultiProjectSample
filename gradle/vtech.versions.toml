@@ -6,11 +6,14 @@ gradlePluginGoogleKspVersion = "2.2.0-2.0.2"
 spotlessVersion = "7.2.1"
 jfrogVersion = "6.0.0"
 kotlinxBenchmarkVersion = "0.4.14"
+koverVersion = "0.9.1"
+dokkaVersion = "2.0.0"
+
 
 #convention-names
-vtechShared = "vtech-shared-convention"
-vtechLibrary = "vtech-library-convention"
-vtechApp = "vtech-app-convention"
+vtechSharedName = "vtech-shared-convention"
+vtechLibraryName = "vtech-library-convention"
+vtechAppName = "vtech-app-convention"
 
 [libraries]
 gradlePluginKotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinVersion" }
@@ -23,6 +26,8 @@ gradlePluginBenchmark = { module = "org.jetbrains.kotlinx:org.jetbrains.kotlinx.
 gradlePluginGoogleKsp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "gradlePluginGoogleKspVersion" }
 gradlePluginSpotless = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "spotlessVersion" }
 gradlePluginJFrog = { module = "com.jfrog.artifactory:com.jfrog.artifactory.gradle.plugin", version.ref = "jfrogVersion" }
+gradlePluginKover = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "koverVersion" }
+gradlePluginDokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokkaVersion" }
 
 [bundles]
-gradlePluginBundle = ["gradlePluginKotlin", "gradlePluginKotlinSerialization", "gradlePluginKotlinSpring", "gradlePluginKotlinNoarg", "gradlePluginSpringBoot", "gradlePluginSpringManagement", "gradlePluginGoogleKsp", "gradlePluginSpotless", ]
+gradlePluginBundle = ["gradlePluginKotlin", "gradlePluginKotlinSerialization", "gradlePluginKotlinSpring", "gradlePluginKotlinNoarg", "gradlePluginSpringBoot", "gradlePluginSpringManagement", "gradlePluginGoogleKsp", "gradlePluginSpotless", "gradlePluginKover", "gradlePluginDokka", ]

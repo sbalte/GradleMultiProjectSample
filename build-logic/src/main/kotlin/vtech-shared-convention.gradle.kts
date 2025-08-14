@@ -7,6 +7,8 @@ plugins {
     kotlin("plugin.spring") apply false
     id("org.springframework.boot") apply false
     id("io.spring.dependency-management") apply false
+    id("org.jetbrains.dokka") apply false
+    id("org.jetbrains.kotlinx.kover") apply false
     `java-test-fixtures`
     `maven-publish`
 }
@@ -43,6 +45,7 @@ dependencies {
     implementation(libs.findBundle("googleBundle").get())
     implementation(libs.findBundle("http4kBundle").get())
     implementation(libs.findBundle("kotlinCoreBundle").get())
+    implementation(libs.findBundle("ktorBundle").get())
     implementation(libs.findBundle("mutinyBundle").get())
     implementation(libs.findBundle("solaceBundle").get())
     implementation(libs.findBundle("jacksonBundle").get())
