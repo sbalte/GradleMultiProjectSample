@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: 'postgres-17-1'
+    environment:
+      - POSTGRES_USER=sbalte
+      - POSTGRES_DB=sboot3
+      - POSTGRES_PASSWORD=sbalte
+    ports:
+      - "5436:5432"
+
+  redisInsight-2.70:
+    image: redislabs/redisinsight:latest
+    container_name: 'redisGUI-2.70-1'
+    restart: unless-stopped
+    ports:
+      - "6503:8001"
+    volumes:
+      - ./data/redisinsight:/db
+
+  redisStack-7.2.0:
+    image: redis/redis-stack:latest
+    container_name: 'redisStack-7-1'
+    environment:
+      - REDIS_ARGS=--save 3602 1 --save 302 100 --save 62 10000
+    command: redis-server --save 20 1 --loglevel warning --requirepass sbalte
+    ports:
+      - "6372:6379"
+    volumes:
+      - cache:/redis-7.2.0/data
+
+volumes:
+  cache:
+    driver: local
