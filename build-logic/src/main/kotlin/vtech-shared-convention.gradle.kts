@@ -84,7 +84,9 @@ configurations.all {
         "org.jetbrains.kotlinx:kotlinx-coroutines-core" to libs.findVersion("kotlinCoroutineTestVersion").get().requiredVersion,
     )
     val excludeJarList = listOf(
-        "com.vaadin.external.google:android-json" to "0.0.20131108.vaadin1",
+        "com.vaadin.external.google" to "android-json",
+        "org.apache.logging.log4j" to "log4j-to-slf4j",
+        "org.apache.logging.log4j" to "log4j-slf4j2-impl",
     )
     resolutionStrategy.cacheChangingModulesFor(30, TimeUnit.DAYS)
     resolutionStrategy.eachDependency {
