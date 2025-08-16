@@ -9,7 +9,7 @@ bsdFreemakerTemplateEngineVersion = "2.3.32"
 coherenceVersion = "14.1.1-0-3"
 commonsLang3Version = "3.12.0"
 csfClientVersion = "2.0.0.4"
-exposed-version = "1.0.0-beta-5"
+exposedVersion = "1.0.0-beta-5"
 googleGsonVersion = "2.11.0"
 googleGuavaVersion = "33.4.8-jre"
 http4kBomVersion = "5.47.0.0"
@@ -44,9 +44,11 @@ log4jKotlinVersion = "1.5.0"
 mockkJvmVersion = "1.13.8"
 mssqlR2DBCVersion = "1.0.2.RELEASE"
 openJdkJmhVersion = "1.37"
+postgresJDBCVersion = "42.7.3"
+postgresR2DBCVersion = "1.0.7.RELEASE"
+r2dbcPoolVersion = "1.0.2.RELEASE"
 reactiveMutinyVersion = "2.6.0"
 redissonVersion = "3.22.0"
-shadowVersion = "9.0.0"
 solaceClientVersion = "1.4.0"
 solaceJmsJakartaVersion = "10.23.0"
 solaceVersion = "10.22.0"
@@ -119,6 +121,14 @@ arrowFxCoroutine = { module = "io.arrow-kt:arrow-fx-coroutines", version.ref = "
 arrowSTM = { module = "io.arrow-kt:arrow-fx-stm", version.ref = "arrowKotlinVersion" }
 arrowOptics = { module = "io.arrow-kt:arrow-optics", version.ref = "arrowKotlinVersion" }
 arrowOpticsKsp = { module = "io.arrow-kt:arrow-optics-ksp-plugin", version.ref = "arrowKotlinVersion" }
+
+# --- exposed ---
+exposedCcore = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposedVersion" }
+exposedJdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposedVersion" }
+exposedR2dbc = { module = "org.jetbrains.exposed:exposed-r2dbc", version.ref = "exposedVersion" }
+exposedCrypt = { module = "org.jetbrains.exposed:exposed-crypt", version.ref = "exposedVersion" }
+exposedJson = { module = "org.jetbrains.exposed:exposed-json", version.ref = "exposedVersion" }
+r2dbcPool = { module = "io.r2dbc:r2dbc-pool", version.ref = "r2dbcPoolVersion" }
 
 # --- Kotlin :: Core ---
 klibsFlowExt = { module = "io.github.hoc081098:FlowExt", version.ref = "klibsFlowExtVersion" }
@@ -230,6 +240,8 @@ radisson = { module = "org.redisson:redisson", version.ref = "redissonVersion" }
 # --- Runtime ---
 mssqlJdbc = { module = "com.microsoft.sqlserver:mssql-jdbc" }
 mssqlR2DBC = { module = "io.r2dbc:r2dbc-mssql", version.ref = "mssqlR2DBCVersion" }
+postgresJDBC = { module = "org.postgresql:postgresql", version.ref = "postgresJDBCVersion" }
+postgresR2DBC = { module = "org.postgresql:r2dbc-postgresql", version.ref = "postgresR2DBCVersion" }
 
 # --- Test ---
 # --- Test :: Kotest ---
@@ -302,17 +314,13 @@ coherence = { module = "com.oracle.coherence.ce:coherence", version.ref = "coher
 csfClient = { module = "com.wfs.csf.client:CSFClient", version.ref = "csfClientVersion" }
 strCache = { module = "com.wellsfargo.regcache:str-cache", version.ref = "strCacheJarVersion" }
 
-# --- Misc ---
-exposedCcore = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed-version" }
-exposedJdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed-version" }
-
 [bundles]
 bomBundle = ["http4kBom", "jacksonBom",]
 apacheBundle = ["apacheCommonsLang3", "apacheLog4jKotlin", "apachePoi", "apachePoiOoxml", "apacheVelocity", "apacheVelocityTool", "bsdFreemakerTemplateEngine", "thymeleafSpringTemplateEngine", "thymeleafTemplateEngine",]
 arrowBundle = ["arrowCore", "arrowFxCoroutine", "arrowSTM", "arrowAutoClose", "arrowEval", "arrowOptics", "arrowOpticsKsp"]
 googleBundle = ["googleGson", "googleGuava"]
 http4kBundle = ["http4kClientApache", "http4kClientOkHttp", "http4kCore", "http4kFreeMarkerTemplate", "http4kJackson", "http4kJacksonXml", "http4kJettyClient", "http4kJettyServer", "http4kKotlinSerialization", "http4kMultipart", "http4kNetty", "http4kThymeleafTemplate", "http4kWebSocketClient", "http4kWebSocketServer", "http4kXml"]
-kotlinCoreBundle = ["klibsFlowExt", "kosonJsonBuilder", "kotlinCoroutineReactor", "kotlinDataframe", "kotlinDatetime", "kotlinxHtml", "kotlinIOCore", "kotlinImmutableCollection", "kotlinKMath", "kotlinMultiKCore", "kotlinMultiKDefault", "kotlinRedux", "kotlinReflect", "kotlinXmlBuilder", "kotlinxSserializationCore", "kotlinxSerializationJson", "kotlinxSerializationProperties", "kotlinCache4k", "kotlinxSerializationCbor", "kotlinxSerializationHocon", "reactorKotlinExtension", "exposedCcore", "exposedJdbc"]
+kotlinCoreBundle = ["klibsFlowExt", "kosonJsonBuilder", "kotlinCoroutineReactor", "kotlinDataframe", "kotlinDatetime", "kotlinxHtml", "kotlinIOCore", "kotlinImmutableCollection", "kotlinKMath", "kotlinMultiKCore", "kotlinMultiKDefault", "kotlinRedux", "kotlinReflect", "kotlinXmlBuilder", "kotlinxSserializationCore", "kotlinxSerializationJson", "kotlinxSerializationProperties", "kotlinCache4k", "kotlinxSerializationCbor", "kotlinxSerializationHocon", "reactorKotlinExtension", "exposedCcore", "exposedJdbc", "exposedR2dbc", "exposedJson", "exposedCrypt", "r2dbcPool", ]
 ktorBundle = ["ktorServer", "ktorServerCio", "ktorServerNetty", "ktorServerJetty", "ktorServerConfigYaml", "ktorServerWebsockets", "ktorServerCompression", "ktorClient", "ktorClientApache", "ktorClientCio", "ktorClientJava", "ktorClientOkHttp", "ktorClientJetty", ]
 mutinyBundle = ["reactiveMutiny", "reactiveMutinyKotlin", "reactiveMutinyReactor"]
 solaceBundle = ["solaceJcsmp", "solaceJms", "solaceJmsJakarta", "solaceMsgClient"]
@@ -326,7 +334,7 @@ cacheBundle = ["coherence", "csfClient", "strCache"]
 jmhBundle = ["openJdkJmhCore", "openJdkJmhAnnProcess"]
 
 # --- Runtime ---
-dbRuntimeBundle = ["mssqlR2DBC", "mssqlJdbc"]
+dbRuntimeBundle = ["mssqlR2DBC", "mssqlJdbc", "postgresR2DBC", "postgresJDBC"]
 
 # --- Test ---
 testBomBundle = ["testStriKtBom"]
