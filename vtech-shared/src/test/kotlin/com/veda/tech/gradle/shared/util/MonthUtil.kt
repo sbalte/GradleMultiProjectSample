@@ -2,16 +2,14 @@ package com.veda.tech.gradle.shared.util
 
 import com.veda.tech.gradle.shared.util.MonthUtil.getDaysInMonthsForYear
 import com.veda.tech.gradle.shared.util.MonthUtil.getUniqueYearsFromDateStrings
-import kotlinx.datetime.*
+import java.time.LocalDate
+import java.time.Month
 
 object MonthUtil {
     fun getDaysInMonthsForYear(years: List<Int>): Map<Int, Map<Month, Int>> =
         years.associateWith { year ->
             Month.entries.associateWith { month ->
-                LocalDate(year, month, 1).run {
-                    plus(1, DateTimeUnit.MONTH)
-                        .minus(1, DateTimeUnit.DAY).day
-                }
+                LocalDate.of(year, month.value, 1).lengthOfMonth()
             }
         }
     fun getUniqueYearsFromDateStrings(dateStrings: List<String>) = dateStrings

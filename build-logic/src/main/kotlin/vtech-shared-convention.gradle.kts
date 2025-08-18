@@ -46,6 +46,7 @@ dependencies {
     implementation(libs.findBundle("http4kBundle").get())
     implementation(libs.findBundle("kotlinCoreBundle").get())
     implementation(libs.findBundle("ktorBundle").get())
+    implementation(libs.findBundle("mongoDbBundle").get())
     implementation(libs.findBundle("mutinyBundle").get())
     implementation(libs.findBundle("solaceBundle").get())
     implementation(libs.findBundle("jacksonBundle").get())

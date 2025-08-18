@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   postgres:
     image: postgres:17
@@ -11,14 +10,14 @@ services:
     ports:
       - "5436:5432"
 
-  redisInsight-2.70:
-    image: redislabs/redisinsight:latest
-    container_name: 'redisGUI-2.70-1'
-    restart: unless-stopped
-    ports:
-      - "6503:8001"
-    volumes:
-      - ./data/redisinsight:/db
+#  redisInsight-2.70:
+#    image: redislabs/redisinsight:latest
+#    container_name: 'redisGUI-2.70-1'
+#    restart: unless-stopped
+#    ports:
+#      - "6503:8001"
+#    volumes:
+#      - ./data/redisinsight:/db
 
   redisStack-7.2.0:
     image: redis/redis-stack:latest
@@ -30,6 +29,38 @@ services:
       - "6372:6379"
     volumes:
       - cache:/redis-7.2.0/data
+
+#  myapplication:
+#    image: mongodb/mongodb-community-server:latest
+#    environment:
+#      - CONN_STR=mongodb://sbalte:sbalte@mongodb
+#    command: '/bin/bash -c "sleep 5; mongosh $$CONN_STR --eval \"show dbs;\""'
+#    depends_on:
+#      - mongodb
+  mongodb:
+    image: mongodb/mongodb-community-server:latest
+    container_name: 'mongoDb-7-1'
+    restart: always
+    environment:
+      - MONGODB_INITDB_ROOT_USERNAME=root
+      - MONGODB_INITDB_ROOT_PASSWORD=example
+#    command: '/bin/bash -c "sleep 5000; mongosh $$CONN_STR --eval \"show dbs;\""'
+    ports:
+      - "27017:27017"
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data/mongoDb
+#  mongo-express:
+#    image: mongo-express:latest
+#    restart: always
+#    ports:
+#      - 8081:8081
+#    environment:
+#      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+#      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+#      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27037/
+#      ME_CONFIG_BASICAUTH: false
 
 volumes:
   cache:

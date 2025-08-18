@@ -42,6 +42,7 @@ kotlinCache4k = "0.14.0"
 ktorVersion = "3.2.3"
 log4jKotlinVersion = "1.5.0"
 mockkJvmVersion = "1.13.8"
+mongoDbVersion = "5.5.1"
 mssqlR2DBCVersion = "1.0.2.RELEASE"
 openJdkJmhVersion = "1.37"
 postgresJDBCVersion = "42.7.3"
@@ -129,6 +130,10 @@ exposedR2dbc = { module = "org.jetbrains.exposed:exposed-r2dbc", version.ref = "
 exposedCrypt = { module = "org.jetbrains.exposed:exposed-crypt", version.ref = "exposedVersion" }
 exposedJson = { module = "org.jetbrains.exposed:exposed-json", version.ref = "exposedVersion" }
 r2dbcPool = { module = "io.r2dbc:r2dbc-pool", version.ref = "r2dbcPoolVersion" }
+
+# --- Mongo DB ---
+mongoDbBom = { module = "org.mongodb:mongodb-driver-bom", version.ref = "mongoDbVersion"}
+mongoDbCoroutineDriver = { module = "org.mongodb:mongodb-driver-kotlin-coroutine"}
 
 # --- Kotlin :: Core ---
 klibsFlowExt = { module = "io.github.hoc081098:FlowExt", version.ref = "klibsFlowExtVersion" }
@@ -315,7 +320,7 @@ csfClient = { module = "com.wfs.csf.client:CSFClient", version.ref = "csfClientV
 strCache = { module = "com.wellsfargo.regcache:str-cache", version.ref = "strCacheJarVersion" }
 
 [bundles]
-bomBundle = ["http4kBom", "jacksonBom",]
+bomBundle = ["http4kBom", "jacksonBom", "mongoDbBom", ]
 apacheBundle = ["apacheCommonsLang3", "apacheLog4jKotlin", "apachePoi", "apachePoiOoxml", "apacheVelocity", "apacheVelocityTool", "bsdFreemakerTemplateEngine", "thymeleafSpringTemplateEngine", "thymeleafTemplateEngine",]
 arrowBundle = ["arrowCore", "arrowFxCoroutine", "arrowSTM", "arrowAutoClose", "arrowEval", "arrowOptics", "arrowOpticsKsp"]
 googleBundle = ["googleGson", "googleGuava"]
@@ -323,6 +328,7 @@ http4kBundle = ["http4kClientApache", "http4kClientOkHttp", "http4kCore", "http4
 kotlinCoreBundle = ["klibsFlowExt", "kosonJsonBuilder", "kotlinCoroutineReactor", "kotlinDataframe", "kotlinDatetime", "kotlinxHtml", "kotlinIOCore", "kotlinImmutableCollection", "kotlinKMath", "kotlinMultiKCore", "kotlinMultiKDefault", "kotlinRedux", "kotlinReflect", "kotlinXmlBuilder", "kotlinxSserializationCore", "kotlinxSerializationJson", "kotlinxSerializationProperties", "kotlinCache4k", "kotlinxSerializationCbor", "kotlinxSerializationHocon", "reactorKotlinExtension", "exposedCcore", "exposedJdbc", "exposedR2dbc", "exposedJson", "exposedCrypt", "r2dbcPool", ]
 ktorBundle = ["ktorServer", "ktorServerCio", "ktorServerNetty", "ktorServerJetty", "ktorServerConfigYaml", "ktorServerWebsockets", "ktorServerCompression", "ktorClient", "ktorClientApache", "ktorClientCio", "ktorClientJava", "ktorClientOkHttp", "ktorClientJetty", ]
 mutinyBundle = ["reactiveMutiny", "reactiveMutinyKotlin", "reactiveMutinyReactor"]
+mongoDbBundle = ["mongoDbCoroutineDriver", ]
 solaceBundle = ["solaceJcsmp", "solaceJms", "solaceJmsJakarta", "solaceMsgClient"]
 jacksonBundle = ["jacksonBom", "jacksonAnnotation", "jacksonDataFormatCsv", "jacksonDataFormatXml", "jacksonDataFormatYaml", "jacksonKotlinModule"]
 jaxbBundle = ["jaxbApi", "jaxbBindImpl", "jaxbBindXjc"]
